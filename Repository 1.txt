@@ -1,0 +1,30 @@
+input_str = 'this is a programing experiment for fun in python'
+#Find out how many repeated words in this? and place every word of i with next one? write a python code for this"
+#Spliting the string into words
+words = input_str.split()
+
+# the number of repeated words
+word_counts = {}
+    for word in words:
+        if word in word_counts:
+            word_counts[word] += 1
+        else:
+            word_counts[word] = 1
+
+num_repeated_words = sum(count > 1 for count in word_counts.values())
+
+print(f"There are {num_repeated_words} repeated words in the input string.")
+
+# Place every word of i with next one
+new_words = []
+    for i in range(len(words) - 1):
+        if words[i] == 'i':
+            new_words.append(words[i + 1])
+            new_words.append(words[i])
+        else:
+            new_words.append(words[i])
+new_words.append(words[-1])
+
+output_str = ' '.join(new_words)
+print("The new string with every word of 'i' with next one is:")
+ print(output_str)
